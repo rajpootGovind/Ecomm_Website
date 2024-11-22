@@ -23,8 +23,8 @@ db.once("open", () => {
 })
 
 const init = () => {
-    app.get("/print", () => {
-        console.log("initially connected")
+    app.get("/print", (req, res) => {
+        res.send("initially connected")
     })
 }
 
