@@ -35,6 +35,8 @@ db.once("open", () => {
 
 require("./Routes/category.route")(app)   // ->calling routes and passing app object
 
+require("./Routes/product.route")(app)
+
 
 // start the server
 

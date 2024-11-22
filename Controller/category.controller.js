@@ -17,4 +17,18 @@ exports.createNewCategory = async (req, res) => {
             message:" error during creating category"
         })
       }
+
+}
+
+// Get all categories
+
+exports.getCategories =async (req, res) => {
+    try{
+        const categories = await categoryModel.find()
+        return res.status(200).send(categories)
+      }catch(err){
+        res.status(500).send({
+            message : "Error during getting categories"
+        })
+      }
 }
