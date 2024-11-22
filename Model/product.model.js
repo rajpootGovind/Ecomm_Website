@@ -3,9 +3,7 @@ const validate = require("validator");
 
 const productSchema = new mongoose.Schema(
     {
-        _id: {
-            type:String
-        },
+       
         name: {
             type: String,
             required: true
@@ -26,7 +24,7 @@ const productSchema = new mongoose.Schema(
             default: 0
         },
         categoryId:{
-            type: String
+            categoryId: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
         }
 
     },{versionKey:false, timestamps: true}

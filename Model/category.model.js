@@ -2,9 +2,7 @@ const mongoose = require('mongoose')
 const validator = require ('validator')
 
 const categorySchema = new mongoose.Schema({
-    _id:{
-        type:String
-    },
+   
     name:{
         type:String,
         required:true,
