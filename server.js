@@ -7,6 +7,9 @@ const app = express()
 const port = process.env.PORT
 const url = process.env.DB_URL
 
+// middleware for understand json format data
+app.use(express.json())
+
 // Connection with database
 
 mongoose.connect(url)
@@ -19,14 +22,18 @@ db.on("error", () => {
 db.once("open", () => {
     console.log("DB connected successfully")
 
-    init()
+    // init()
 })
 
-const init = () => {
-    app.get("/print", (req, res) => {
-        res.send("initially connected")
-    })
-}
+// const init = () => {
+//     app.get("/print", (req, res) => {
+//         res.send("initially connected")
+//     })
+// }
+
+//Add Routes to the server
+
+require("./Routes/category.route")(app)   // ->calling routes and passing app object
 
 
 // start the server

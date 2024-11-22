@@ -3,7 +3,7 @@ const validator = require ('validator')
 
 const categorySchema = new mongoose.Schema({
     _id:{
-        type:ObjectId
+        type:String
     },
     name:{
         type:String,
@@ -15,4 +15,4 @@ const categorySchema = new mongoose.Schema({
     }
 },{versionKey:false, timestamps:true})
 
-module.exports = mongoose.model(Category, categorySchema)
+module.exports = mongoose.model("Category", categorySchema)
