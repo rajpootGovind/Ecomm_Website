@@ -52,7 +52,11 @@ exports.getCategoriesById =async (req, res) => {
 
 exports.updatedCategories = async (req, res) => {
  try{
-    const category =  await categoryModel.findByIdAndUpdate(req.params.id, { name: req.body.name, description: req.body.description })
+    const category =  await categoryModel.findByIdAndUpdate(req.params.id, 
+        { 
+            name: req.body.name, 
+            description: req.body.description 
+        })
 
     const updatedCategory = {
       name: category.name,
@@ -61,7 +65,7 @@ exports.updatedCategories = async (req, res) => {
     return res.status(201).send(updatedCategory)
 
  }catch(err){
-    console.log(`error during category updation ${err}`);
+    console.log(`error during category updation ${err}`)
     
     return res.status(500).send({
         message: "error during category update"
