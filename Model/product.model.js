@@ -4,30 +4,38 @@ const validate = require("validator");
 const productSchema = new mongoose.Schema(
     {
        
-        name: {
+        name: 
+        {
             type: String,
             required: true
         },
-        price: {
+
+        price: 
+        {
             type: Number,
             required: true,
-            validate: {
-                validator: function(num) {
+            validate: 
+            {
+                validator: function(num) 
+                {
                   return num > 0;
                 },
                 message: "invalid price are given"
               }
         },
-        stock: {
+
+        stock: 
+        {
             type: Number,
             required: true,
             default: 0
         },
         
-            categoryId: { 
-                type: mongoose.Schema.Types.ObjectId, 
-                ref: 'categoryModel', 
-                required: true },
+            categoryId: 
+            { 
+                type: mongoose.Schema.Types.ObjectId,  
+                required: true 
+            }
         }
 
     ,{versionKey:false, timestamps: true}
