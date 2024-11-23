@@ -29,9 +29,10 @@ app.use(bodyParser.json());
 mongoose.connect(url)
 const db = mongoose.connection
 
-db.on("error", () => 
+db.on("error", (error) => 
 {
     console.log(`error during connection with DB ${error}`)
+    process.exit(1)
 })
 
 db.once("open", () => 
