@@ -49,11 +49,11 @@ require("../api/Routes/product.route")(app)
 
 // Health Check Route
 app.get('/', (req, res) => {
-    res.send('Backend is running!');
+    res.send('Backend is created By Govind Rajpoot!');
   });
 
 
-// start the server
+// 01method- start the server
 
 // app.listen(port, () => 
 // {
@@ -61,6 +61,6 @@ app.get('/', (req, res) => {
 // })
 
 
-// Export app as a vercel serverless function
+//02vercel method- Export app as a vercel serverless function
    
    module.exports = app
