@@ -1,5 +1,7 @@
 const productModel = require("../Model/product.model")
+
 const categoryModel = require("../Model/category.model")
+
 
 // 1. Create product-
 

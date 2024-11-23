@@ -4,6 +4,10 @@ const mongoose = require("mongoose")
 
 require("dotenv").config()
 
+const cors = require('cors');
+
+const bodyParser = require('body-parser');
+
 
 
 const app = express()
@@ -13,6 +17,11 @@ const url = process.env.DB_URL
 
 // middleware for understand json format data
 app.use(express.json())
+
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
 
 // Connection with database
@@ -34,17 +43,22 @@ db.once("open", () =>
 
 //Add Routes to the server
 
-require("./Routes/category.route")(app)   // ->calling routes and passing app object
+require("../api/Routes/category.route")(app)   // ->calling routes and passing app object
 
-require("./Routes/product.route")(app)
+require("../api/Routes/product.route")(app)
+
+// Health Check Route
+app.get('/', (req, res) => {
+    res.send('Backend is running!');
+  });
 
 
 // start the server
 
-app.listen(port, () => 
-{
-    console.log(`server is running on port no. : ${port}`)
-})
+// app.listen(port, () => 
+// {
+//     console.log(`server is running on port no. : ${port}`)
+// })
 
 
 // Export app as a vercel serverless function
