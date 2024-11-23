@@ -7,4 +7,18 @@ Firstly we create category schema with validators. than we create category contr
 Time to time we tested our APIs by a tool (POSTMAN) and commit and push our code in GitHub . for deployment We use a tool (VERCEL).
 Deployment- we make some changes on server.js like removing local server and export app to vercel, add cors, body-parser dependencies then we create index.js for entry and import app in to it. we created another file vercel.json used for routing and build instruction. 
 than in vercel we add project and deploy it. Thats the process of this project.
+API Endpoints-
+Category APIs
+Create a Category: POST /eWebsite/api/categories
+Get All Categories: GET /eWebsite/api/categories
+Get Category by ID (with Products): GET /eWebsite/api/categories/:id
+Update a Category: PUT /eWebsite/api/categories/:id
+Delete a Category: DELETE /eWebsite/api/categories/:id
+Product APIs
+Create a Product: POST /eWebsite/api/products
+Get All Products: GET /eWebsite/api/products
+Get Product by ID (with Category): GET /eWebsite/api/products/:id
+Update a Product: PUT /eWebsite/api/products/:id
+Delete a Product: DELETE /eWebsite/api/products/:id
+
 
