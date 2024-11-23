@@ -52,28 +52,33 @@ exports.products = async(req, res) => {
   }
 
 
-  //get all product by id with its categories
+  //get a product by id with its categories
 
-  exports.productsById = async(req, res) => {
+  exports.productById = async(req, res) => {
+
+
    
     try{
-      const products = await productModel.findById(req.params.id)
-      if (!products) {
+      const product = await productModel.findById(req.params.id)
+      if (!product) {
         return res.status(404).send(
             { 
                 message: 'Product not found' 
             });
       }
 
-      return res.status(200).send(products)
+      const category = await categoryModel.find({ _id : product.categoryId})
+
+
+      return res.status(200).send({product, category})
   
     }
     
     catch(err){
-      console.log(`error during product findingById ${err}`);
+      console.log(`error during product finding ById ${err}`);
       
-     return res.status(500).send({
-          message: "error during product findingById "
+     return res.status(404).send({
+          message: "error during product finding ById "
       })
     }
   }
