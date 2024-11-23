@@ -3,8 +3,8 @@
   "builds": [
     {
       "src": "api/index.js",
-      "use": "@vercel/node",
-      "maxDuration": 30
+      "use": "@vercel/node"
+      
     }
   ],
   "routes": [
