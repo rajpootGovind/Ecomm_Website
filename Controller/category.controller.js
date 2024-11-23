@@ -1,5 +1,6 @@
 const categoryModel = require("../Model/category.model");
 const productModel = require("../Model/product.model");
+const categoryRoute = require("../Routes/category.route");
 
 
 exports.createNewCategory = async (req, res) => {
@@ -28,21 +29,28 @@ exports.getCategories =async (req, res) => {
         const categories = await categoryModel.find()
         return res.status(200).send(categories)
       }catch(err){
-        res.status(500).send({
+        res.status(404).send({
             message : "Error during getting categories"
         })
       }
 }
 
-//get categories by id with its products
+//get category by id with its products
 
-exports.getCategoriesById =async (req, res) => {
+exports.getCategoryById =async (req, res) => {
     try{
-        const categories = await categoryModel.findById(req.params.id)
-        return res.status(200).send(categories)
+        const category = await categoryModel.findById(req.params.id)
+        if(!category){
+            return res.status(404).send({
+                message: "Category not find "
+            })
+        }
+        const products = await productModel.find({categoryId : category._id})
+
+        return res.status(200).send({category, products})
       }catch(err){
-        res.status(500).send({
-            message : "Error during getting categories"
+        res.status(404).send({
+            message : "Error during getting category with products"
         })
       }
 }

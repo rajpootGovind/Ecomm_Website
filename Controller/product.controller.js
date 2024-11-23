@@ -111,11 +111,11 @@ exports.products = async(req, res) => {
 
   exports.deletedProduct = async(req, res) => {
     try{
-        const deletedProduct = await productModel.findByIdAndDelete(req.params.id)
-       res.status(200).send({
+      const deletedProduct = await productModel.findByIdAndDelete(req.params.id)
+      return res.status(200).send({
             message:"product deleted sucessfully "
         })
-        res.status(200).send(deletedProduct)
+       
   }
 catch(err){
     console.log(`error during deleting product ${err}`);
