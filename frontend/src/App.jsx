@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "./components/ui/button";
+import AppRoutes from "./routes/AppRoutes";
 
 // import "./App.css";
 
@@ -7,7 +9,7 @@ function App() {
 
   return (
     <>
-      <h1 className=" bg-amber-600 hover:text-blue-600">Hello</h1>
+      <AppRoutes />
     </>
   );
 }

@@ -15,6 +15,7 @@ exports.newUserController = async (req, res) => {
 
     res.status(200).send({
       message: "userCreated",
+      success: true,
       data: userData,
     });
   } catch (error) {

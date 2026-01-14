@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -14,6 +14,7 @@ const url = process.env.DB_URL;
 // middleware for understand json format data
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("dev"));
 
 // Middleware
 app.use(cors());
