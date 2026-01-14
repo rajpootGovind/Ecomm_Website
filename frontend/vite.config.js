@@ -14,8 +14,11 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5000/eWebsite",
+        // target: "http://localhost:5000/eWebsite",
+        target: "https://ecomm-website-eight.vercel.app/",
         changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api/, "/eWebsite/api"),
       },
     },
   },
