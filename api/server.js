@@ -45,7 +45,7 @@ app.use("/eWebsite/api/auth", require("./Routes/user.routes"));
 app.get("/", (req, res) => {
   console.log("Get api start");
 
-  res.send("Backend is created By Govind Rajpoot!");
+  res.send("Backend is running & it is created By Govind Rajpoot!");
 });
 
 // 01method- start the server
